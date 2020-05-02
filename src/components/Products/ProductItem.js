@@ -8,8 +8,9 @@ import './ProductItem.css';
 // import { ProductsContext } from '../../context/products-context';
 // import { toggleFav } from '../../store/actions/products';
 
-const ProductItem = props => {
-  const dispatch = useStore()[1];
+const ProductItem = React.memo(props => {//React memo around design and should make sure they don't render if their props didn't change at the props for the other item certainly didn't change.
+  console.log('rendering');
+  const dispatch = useStore(false)[1];
   // const dispatch = useDispatch();
 
   // const toggleFav = useContext(ProductsContext).toggleFav;
@@ -33,6 +34,6 @@ const ProductItem = props => {
       </div>
     </Card>
   );
-};
+});
 
 export default ProductItem;
