@@ -1,19 +1,22 @@
 // jshint esversion: 9
-import React, { useContext } from 'react';
+import React from 'react';
 // import { useDispatch } from 'react-redux';
 
+import {useStore} from '../../hooks-store/store';
 import Card from '../UI/Card';
 import './ProductItem.css';
-import { ProductsContext } from '../../context/products-context';
+// import { ProductsContext } from '../../context/products-context';
 // import { toggleFav } from '../../store/actions/products';
 
 const ProductItem = props => {
+  const dispatch = useStore()[1];
   // const dispatch = useDispatch();
 
-  const toggleFav = useContext(ProductsContext).toggleFav;
+  // const toggleFav = useContext(ProductsContext).toggleFav;
 
   const toggleFavHandler = () => {
-    toggleFav(props.id)
+    // toggleFav(props.id)
+    dispatch('TOGGLE_FAV', props.id);
   };
 
   return (
